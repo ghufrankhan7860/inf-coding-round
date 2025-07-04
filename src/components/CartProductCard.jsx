@@ -7,11 +7,16 @@ const CartProductCard = ({ product }) => {
     };
     return (
         <div className="flex flex-col items-center h-90 w-70 shadow-lg rounded-lg border-1 m-2 border-yellow-400">
-            <img
-                src={product.image}
-                alt="product-image"
-                className="mt-3 h-40"
-            />
+            <div className="flex justify-center relative w-full">
+                <span className="absolute top-2 right-1 p-2 text-yellow-500 bg-yellow-800 rounded-xl ">
+                    {product.count}
+                </span>
+                <img
+                    src={product.image}
+                    alt="product-image"
+                    className="mt-3 h-40"
+                />
+            </div>
 
             <div className="p-2">
                 <div className=" font-medium p-2">{product.title}</div>

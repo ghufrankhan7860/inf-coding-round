@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const getInitialState = () => {
 
     try {
@@ -25,8 +26,16 @@ const cartSlice = createSlice({
     },
     reducers: {
         addToCart: (state, action) => {
+            const existingItemIndex = state.items.findIndex(
+                (item) => item.id === action.payload.id
+            );
 
-            state.items.push(action.payload);
+            if (existingItemIndex !== -1) {
+                state.items[existingItemIndex].count += 1;
+            } else {
+                const newItem = { ...action.payload, count: 1 };
+                state.items.push(newItem);
+            }
 
             try {
                 localStorage.setItem("cartItems", JSON.stringify(state.items));
@@ -36,12 +45,22 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart: (state, action) => {
-            state.items = state.items.filter((item) => item.id != action.payload.id);
-            try {
-                localStorage.setItem("cartItems", JSON.stringify(state.items));
-            }
-            catch (error) {
-                console.log("Can't remove product update cart items in local Storage");
+            const existingItemIndex = state.items.findIndex(
+                (item) => item.id === action.payload.id
+            );
+
+            if (existingItemIndex !== -1) {
+                if (state.items[existingItemIndex].count > 1) {
+                    state.items[existingItemIndex].count -= 1;
+                } else {
+                    state.items = state.items.filter((item) => item.id != action.payload.id);
+                }
+                try {
+                    localStorage.setItem("cartItems", JSON.stringify(state.items));
+                }
+                catch (error) {
+                    console.log("Can't remove product update cart items in local Storage");
+                }
             }
         },
         clearCart: (state) => {
