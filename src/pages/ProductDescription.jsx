@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { addToCart } from "../store/cartSlice";
 
+
 const ProductDescription = () => {
     const location = useLocation();
     const { state } = location;
@@ -9,6 +10,7 @@ const ProductDescription = () => {
 
     const handleAddToCart = () => {
         dispatch(addToCart(state));
+        
     };
 
     return (

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import { toast } from "react-toastify";
 const getInitialState = () => {
 
     try {
@@ -36,6 +36,15 @@ const cartSlice = createSlice({
                 state.items.push(newItem);
             }
 
+            // toast to show success
+            toast.success(`${action.payload.title} added to cart!`, {
+                position: "bottom-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+            });
             try {
                 localStorage.setItem("cartItems", JSON.stringify(state.items));
             }
