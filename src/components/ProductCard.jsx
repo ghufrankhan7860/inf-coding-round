@@ -8,8 +8,10 @@ const ProductCard = ({ product }) => {
             />
 
             <div className="p-2">
-                <div className=" font-medium p-2 max-h-20">{product.title}</div>
-                <div className="text-xs p-2 text-gray-700 max-h-10 overflow-hidden">
+                <div className=" font-medium p-2 max-h-20 overflow-hidden">
+                    {product.title}
+                </div>
+                <div className="text-xs p-2 text-gray-700 max-h-10 truncate">
                     {product.description}
                 </div>
                 <div className="flex justify-between gap-2 p-3">
