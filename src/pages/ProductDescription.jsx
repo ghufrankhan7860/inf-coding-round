@@ -36,7 +36,7 @@ const ProductDescription = () => {
                             ₹{state.price}
                         </div>
                         <button
-                            className="bg-yellow-500 p-3 rounded-lg text-yellow-900"
+                            className="bg-yellow-500 p-3 rounded-lg text-yellow-900 hover:cursor-pointer"
                             onClick={handleAddToCart}
                         >
                             Add

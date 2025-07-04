@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     return (
         <div>
-            <div className="flex px-6 py-5 w-fit border-2 border-yellow-400 rounded-xl">
+            <div className="flex px-6 py-5 ">
                 <NavLink to="/" className="mr-10 mt-2">
                     <svg
                         width="134"
@@ -58,7 +58,7 @@ const Navbar = () => {
                                 : "text-2xl p-2 text-yellow-500"
                         }
                     >
-                        Products
+                        All Products
                     </NavLink>
                     <NavLink
                         to="/cart"

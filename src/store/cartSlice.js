@@ -21,7 +21,7 @@ const cartSlice = createSlice({
     name: "cart",
     initialState: {
         items: getInitialState() || [],
-
+        itemsCnt: []
     },
     reducers: {
         addToCart: (state, action) => {
@@ -36,7 +36,7 @@ const cartSlice = createSlice({
             }
         },
         removeFromCart: (state, action) => {
-            state.items = state.items.filter((item) => item.id != action.payload);
+            state.items = state.items.filter((item) => item.id != action.payload.id);
             try {
                 localStorage.setItem("cartItems", JSON.stringify(state.items));
             }

@@ -1,18 +1,31 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CartProductCard from "../components/CartProductCard";
+import { clearCart } from "../store/cartSlice";
+
 const Cart = () => {
     const cartItems = useSelector((store) => store.cart.items);
-    const handleClearCart = () => {};
+    const dispatch = useDispatch();
+    const handleClearCart = () => {
+        dispatch(clearCart());
+        console.log("Cart cleared");
+    };
     return (
         <div className="mt-2">
-            <div>
+            {cartItems.length ? (
                 <button
                     className="p-2 m-2 bg-red-500 text-white rounded-xl"
                     onClick={handleClearCart}
                 >
                     Clear Cart
                 </button>
-            </div>
+            ) : (
+                <div className="flex justify-center items-center h-100">
+                    <div className="text-6xl items-center text-red-400">
+                        NO ITEMS IN THE CART
+                    </div>
+                </div>
+            )}
+
             <div className="flex flex-wrap ">
                 {cartItems.map((productItem) => (
                     <CartProductCard

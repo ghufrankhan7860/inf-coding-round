@@ -3,7 +3,7 @@ import { removeFromCart } from "../store/cartSlice";
 const CartProductCard = ({ product }) => {
     const dispatch = useDispatch();
     const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(state));
+        dispatch(removeFromCart(product));
         console.log("Removed from cart");
     };
     return (
