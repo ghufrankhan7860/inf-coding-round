@@ -7,7 +7,6 @@ const Cart = () => {
     const dispatch = useDispatch();
     const handleClearCart = () => {
         dispatch(clearCart());
-        console.log("Cart cleared");
     };
     return (
         <div className="mt-2">
