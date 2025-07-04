@@ -21,7 +21,7 @@ const Products = () => {
             {isLoading ? (
                 <Shimmer />
             ) : (
-                <div className="flex flex-wrap ">
+                <div className="flex flex-wrap justify-center">
                     {productsList.map((productItem) => (
                         <NavLink
                             to={"/desc/" + productItem.id}

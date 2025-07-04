@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
             />
 
             <div className="p-2">
-                <div className=" font-medium p-2">{product.title}</div>
+                <div className=" font-medium p-2 max-h-20">{product.title}</div>
                 <div className="text-xs p-2 text-gray-700 max-h-10 overflow-hidden">
                     {product.description}
                 </div>

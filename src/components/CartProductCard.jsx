@@ -4,7 +4,6 @@ const CartProductCard = ({ product }) => {
     const dispatch = useDispatch();
     const handleRemoveFromCart = () => {
         dispatch(removeFromCart(product));
-        console.log("Removed from cart");
     };
     return (
         <div className="flex flex-col items-center h-90 w-70 shadow-lg rounded-lg border-1 m-2 border-yellow-400">
